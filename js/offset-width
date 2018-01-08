@@ -1,0 +1,25 @@
+### opera, input 'ooo'
+
+character is: 'Home'
+Home: cursor pos: -28
+
+character is: 'End'
+End: cursor pos: 0
+
+
+### firefox, input: 'ooo'
+
+character is: 'Home'
+Home: cursor pos: -27
+
+character is: 'End'
+End: cursor pos: 0
+
+
+### vivaldi, input: 'ooo'
+
+character is: 'Home'
+Home: cursor pos: -28
+
+character is: 'End'
+End: cursor pos: 0

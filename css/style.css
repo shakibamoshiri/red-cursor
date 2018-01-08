@@ -1,0 +1,130 @@
+
+html
+{
+    /* background-color: #2C001E; */
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inconsolata', monospace;
+    font-size: 15px;
+    color: #FFF;
+}
+
+span
+{
+    float: left;
+    white-space: pre;
+}
+
+/* .cursor */
+/* { */
+/*     /\* it is vital to move the cursor *\/ */
+/*     position: relative; */
+    
+/*     bottom: -1px; */
+/*     color: #F00; */
+/*     font-weight: bolder; */
+/*     /\* using: cubic-bezier( 0, 1, 0, 1) is the best choice for a cursor  *\/ */
+
+    
+/*     animation: cursor1 1s cubic-bezier( 0, 1, 0, 1 ) infinite; */
+/*     /\* Safari 4.0 - 8.0 *\/ */
+/*     -webkit-animation: cursor1 1s cubic-bezier( 0, 1, 0, 1 ) infinite; */
+/* } */
+
+.cursor
+{
+    /* it is vital to move the cursor */
+    position: relative;
+    
+    background-color: #F00;
+    /* bottom: -1px */
+    /* color: #0FF; */
+    /* font-weight: bolder; */
+    /* using: cubic-bezier( 0, 1, 0, 1) is the best choice for a cursor  */
+
+    
+    animation: cursor 1s cubic-bezier( 0, 1, 0, 1 ) infinite;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation: cursor 1s cubic-bezier( 0, 1, 0, 1 ) infinite;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes cursor
+{
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes cursor
+{
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#terminal
+{
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+.row
+{
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+.prompt
+{
+    /* color: #FF8C00; */
+    color: #0FF;
+}
+
+.readable
+{
+    color: #FFF;
+}
+.text
+{
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+.executable
+{
+    color: #0F0;
+}
+.directory
+{
+    color: #09F;
+}
+.media
+{
+    color: #F0F;
+}
+
+.executable
+{
+    color: #0F0;
+}
+.comment
+{
+    font-style: italic;
+    color: #A9A9A9;
+}
+.guide
+{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    opacity: 0.5;
+}
