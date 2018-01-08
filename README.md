@@ -55,7 +55,6 @@ that they are encountered a real **Terminal Emulator** which in Linux it is usua
  2. Separate the main function (= main.js) form other parts so you can see how it works.  
  3. Key-binding to toggle `console.log` **on**/**off** so you easily can see what is going on.  
 
-<hr>
 
 ![6](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.6.png)  
 
