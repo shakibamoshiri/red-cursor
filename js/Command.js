@@ -199,7 +199,7 @@ function Command( screen, path )
 
             // open new table and goes to source code on gitup
             case 't':
-            window.open( 'https://github.com/k-five/tr', '_blank').focus();
+            window.open( 'https://github.com/k-five/red-cursor', '_blank').focus();
             break;
 
             // open new table and goes to stack overflow account
