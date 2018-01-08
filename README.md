@@ -1,4 +1,4 @@
-<h1>red-cursor</h1>  
+![banner](https://github.com/k-five/red-cursor/blob/master/pngs/banner.gif)  
   
 █░░░█ █▀▀ █░░ █▀▀ █▀▀█ █▀▄▀█ █▀▀  
 █▄█▄█ █▀▀ █░░ █░░ █░░█ █░▀░█ █▀▀  
@@ -6,10 +6,10 @@
 to red-cursor.  
 A simple, but still beautiful Terminal Emulator.  
 
-<hr>
+This is an app with pure `JavaScript`, `HTML` and `CSS`.  
 
 
-This is an app with pure `JavaScript`, `HTML` and `CSS`. It handles some essential keystrokes like:  
+![1](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.1.png)  
  - Tab completion  
  - Cursor movement  
    - Home  
@@ -28,14 +28,14 @@ This is an app with pure `JavaScript`, `HTML` and `CSS`. It handles some essenti
    - Shift  
 
 
-### basic idea:  
+![2](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.2.png)  
 I was looking for a good style for my personal website so that I can put my resume on it. And although  
 there were a lot of good sites and especially free-templates and web-site-builder(s), eventually I came  
 up with this idea that I should create an application; looks line my **terminal emulator** since almost  
 I use `CLI` and not `GUI`  
 
 
-### want to learn `span` tag deeply?  
+![3](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.3.png)  
 Apart from designing it for myself, I tried to make it more useful for someone; who wants to learn `JS`  
 and `CSS` and `HTML` deeply.  
 The app is based on 3 core things:  
@@ -44,22 +44,20 @@ The app is based on 3 core things:
  3. **DOM** modification with JavaScript`  
 
 
-### what is interesting with this app:  
+![4](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.4.png)  
 The most interesting part of the app is **cursor movement** which is based on `animation` and asynchronous  
 nature in `CSS`. Also modifying the **innerHTML** of a tag (= line) is a little tricky so that users can feel  
 that they are encountered a real **Terminal Emulator** which in Linux it is usually down by **readlihne** library.  
 
 
-### what it has for learners:  
+![5](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.5.png)  
  1. Full documentation on each step/line of the code.  
  2. Separate the main function (= main.js) form other parts so you can see how it works.  
  3. Key-binding to toggle `console.log` **on**/**off** so you easily can see what is going on.  
 
 <hr>
 
-
-
-### Available Commands  
+![6](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.6.png)  
 
 <table>
     <tr>
