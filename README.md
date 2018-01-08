@@ -3,8 +3,8 @@
 █░░░█ █▀▀ █░░ █▀▀ █▀▀█ █▀▄▀█ █▀▀  
 █▄█▄█ █▀▀ █░░ █░░ █░░█ █░▀░█ █▀▀  
 ░▀░▀░ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░░▀ ▀▀▀  
-to red-cursor.  
-A simple, but still beautiful Terminal Emulator.  
+[to red-cursor.  
+A simple, but still beautiful Terminal Emulator](https://k-five.github.io/).  
 
 This is an app with pure `JavaScript`, `HTML` and `CSS`.  
 
