@@ -1,12 +1,8 @@
 ![banner](https://github.com/k-five/red-cursor/blob/master/pngs/banner.gif)  
   
-█░░░█ █▀▀ █░░ █▀▀ █▀▀█ █▀▄▀█ █▀▀  
-█▄█▄█ █▀▀ █░░ █░░ █░░█ █░▀░█ █▀▀  
-░▀░▀░ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░░▀ ▀▀▀  
-[to red-cursor.  
-A simple, but still beautiful Terminal Emulator](https://k-five.github.io/).  
-
+A simple, but still beautiful **Terminal Emulator**.  
 This is an app with pure `JavaScript`, `HTML` and `CSS`.  
+[Live-Demo](https://k-five.github.io/)  
 
 
 ![1](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.1.png)  
