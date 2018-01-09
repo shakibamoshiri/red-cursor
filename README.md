@@ -118,7 +118,7 @@ that they are encountered a real **Terminal Emulator** which in Linux it is usua
     <tr>
       <td>open</td>
       <td>Yes</td>
-      <td>open a meida</td>
+      <td>open a media</td>
     </tr>
     <tr>
       <td>clean</td>
