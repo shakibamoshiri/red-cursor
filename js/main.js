@@ -48,29 +48,29 @@ function key_down( event )
     // store each cursor because we might clear it, or modify it later
     var cursor  = screen.get( 'cursor' );
 
-    // stop cursor blinking 
+    // stop cursor blinking
     // cursor.style.animationIterationCount = '1';
     // this is not a good choice
     // cursor.style.animationPlayState = "paused";
-    
+
     // exact position of the cursor. by default it is 0 but if we move
     // it, it becomes negative (= more the left)
     var cursor_pos =  parseInt( cursor.style.left ) / screen.char_width;
-    
+
     // clearing screen with Control + L, or
     // enable/disable logging to the console
     if( event.ctrlKey || event.altKey || event.shiftKey )
     {
         event.preventDefault();
-        
+
         if( enable_log )
         {
             console.log( 'special key was pressed' );
-        }       
-        
+        }
+
         if( event.altKey )
         {
-            command.alter( char );            
+            command.alter( char );
             char = '';
         }
         else
@@ -95,10 +95,10 @@ function key_down( event )
         // for mysql:
         // https://regex101.com/r/tjQ0kC/1
         // (?=.*[^,] from ) ([a-zA-Z(*)]+) *,?
-        
+
         // copy the full row contents
         screen.input_buffer = row.innerHTML;
-        
+
         // store this line for history command
         // trim() is for prevent empty and space to be stored
         if( screen.input_buffer.trim() !== '' )
@@ -106,7 +106,7 @@ function key_down( event )
             command.histories.push( screen.input_buffer );
             command.h_index++;
         }
-        
+
         // now this line is clean, without any comments
         var line = screen.get( 'line' );
 
@@ -124,12 +124,12 @@ function key_down( event )
         if( line !== 'clear' )
         {
             screen.hide_cursor();
-            screen.prompt( path.get() );        
+            screen.prompt( path.get() );
             screen.add( 'SPAN', 'row' );
             screen.cursor();
             screen.newline();
         }
-        
+
         //
         screen.input_buffer = '';
         break;
@@ -137,13 +137,13 @@ function key_down( event )
         case 'Backspace':
         // and how many character we have in our row
         var width = row.innerHTML.length;
-        
+
         if( width > ( cursor_pos * -1 ) )
         {
             var array = row.innerHTML.split( "" );
             row.innerHTML = '';
             var result = '';
-            
+
             var index  = 0;
             var length = array.length;
             var target = ( length + cursor_pos ) - 1;
@@ -157,19 +157,19 @@ function key_down( event )
                 result += array[ index ];
                 ++index;
             }
-            
+
             row.innerHTML = result;
             screen.input_buffer = result;
         }
         break;
-        
+
         case 'Delete':
         if( ( cursor_pos * -1 ) > 0 )
         {
             var array = row.innerHTML.split( "" );
             row.innerHTML = '';
             var result = '';
-            
+
             var index  = 0;
             var length = array.length;
             var target = ( length + cursor_pos );
@@ -183,7 +183,7 @@ function key_down( event )
                 result += array[ index ];
                 ++index;
             }
-            
+
             row.innerHTML = result;
             screen.input_buffer = result;
 
@@ -191,7 +191,7 @@ function key_down( event )
             cursor.style.left = ( ( cursor_pos + 1 ) * screen.char_width ) + 'px';
         }
         break;
-        
+
         case 'Tab':
         event.preventDefault();
         char = '';
@@ -205,7 +205,7 @@ function key_down( event )
         {
             var match = '';
             var match_counter = 0;
-            
+
             var files = path.root[ 'bin' ];
 
             // when we could find it then we should break
@@ -224,12 +224,12 @@ function key_down( event )
                 {
                     match = file;
                     ++match_counter;
-                    
+
                     screen.text( file, files[ file ] );
                     screen.newline();
                 }
             }
-            
+
             screen.hide_cursor();
             screen.prompt( path.get() );
 
@@ -262,7 +262,7 @@ function key_down( event )
             // word to the row
             var match = '';
             var match_counter = 0;
-            
+
             var files = path.root[ cwd ];
             var word2 = row_tab.substr( row_tab.lastIndexOf( ' ' ) + 1, row_tab.length );
             if( files[ word2 ] !== undefined )
@@ -285,12 +285,12 @@ function key_down( event )
                 {
                     match = file;
                     ++match_counter;
-                    
+
                     screen.text( file, files[ file ] );
                     screen.newline();
-                }                
+                }
             }
-            
+
             screen.hide_cursor();
             screen.prompt( path.get() );
             if( match_counter === 1 )
@@ -305,7 +305,7 @@ function key_down( event )
             screen.newline();
         }
         break;
-        
+
         // ignore F1 - F12
         case 'F1':
         case 'F2':
@@ -318,8 +318,8 @@ function key_down( event )
         case 'F9':
         case 'F10':
         case 'F11':
-        case 'F12':  
- 
+        case 'F12':
+
         // should be ignored:
         case 'Control':
         case 'Alt':
@@ -349,13 +349,13 @@ function key_down( event )
         // goes back to previous command
         event.preventDefault();
         char = '';
-        
+
         if( command.h_index > 0 )
         {
             // reset the position to zero to avoid conflict cursor position
             // with other old command in the command.histories
             cursor.style.left = '0px';
-            
+
             --command.h_index;
             row.innerHTML = command.histories[ command.h_index ];
 
@@ -370,7 +370,7 @@ function key_down( event )
         // come back to latest command
         event.preventDefault();
         char = '';
-        
+
         var length = command.histories.length;
         if( command.h_index < length )
         {
@@ -393,14 +393,14 @@ function key_down( event )
             }
         }
         break;
-        
-		case 'ArrowLeft':
+
+        case 'ArrowLeft':
         event.preventDefault();
         char = '';
-        
+
         var row_width  = ( screen.get( 'row' ).offsetWidth - 1 );
         var cursor_pos_px = parseInt( cursor.style.left );
-        
+
         if( cursor_pos_px + row_width <= 0 )
         {
             break;
@@ -412,15 +412,15 @@ function key_down( event )
         {
             console.log( 'cursor pos:', cursor_pos_px );
         }
-        
+
         cursor.style.left = cursor_pos_px + 'px';
         break;
-            
-		case 'ArrowRight':
+
+        case 'ArrowRight':
         event.preventDefault();
         char = '';
 
-        var cursor_pos_px = parseInt( cursor.style.left );            
+        var cursor_pos_px = parseInt( cursor.style.left );
         if( cursor_pos_px === 0 )
         {
             break;
@@ -434,8 +434,8 @@ function key_down( event )
             console.log( 'cursor pos:', cursor_pos_px );
         }
         break;
-        
-		case 'Home':
+
+        case 'Home':
         event.preventDefault();
         char = '';
 
@@ -443,11 +443,11 @@ function key_down( event )
         // this value is not correct
         // it is correct only on firefox
         // var row_width = ( screen.get( 'row' ).offsetWidth  * -1 );
-        
+
         var row_width = ( screen.get( 'row' ).getBoundingClientRect().width );
         // row_width =  Math.floor( row_width ) * -1;
         row_width = ( row_width ^ 0xFFFFFFFF ) + 1;
-        
+
         cursor.style.left = row_width + 'px';
 
         if( enable_log )
@@ -455,28 +455,28 @@ function key_down( event )
             console.log( 'Home: cursor pos:', row_width );
         }
         break;
-        
-		case 'End':
+
+        case 'End':
         event.preventDefault();
-		char = '';
-		cursor.style.left = '0px';
+        char = '';
+        cursor.style.left = '0px';
 
         if( enable_log )
         {
             console.log( 'End: cursor pos:', 0 );
         }
-		break;
+        break;
 
         default:
         event.preventDefault();
-        
+
         // cursor_pos is negative
-		if( cursor_pos != 0 )
-		{
+        if( cursor_pos != 0 )
+        {
             var array = row.innerHTML.split( "" );
             row.innerHTML = '';
             var result = '';
-            
+
             var index  = 0;
             var length = array.length;
             var target = ( length + cursor_pos );
@@ -485,21 +485,21 @@ function key_down( event )
                 if( index === target )
                 {
                     result += char;
-                    
+
                 }
                 result += array[ index ];
                 ++index;
             }
-            
+
             row.innerHTML = result;
             screen.input_buffer = result;
-		}
+        }
         else
         {
             row.innerHTML += char;
             screen.input_buffer += char;
-        }              
-        
+        }
+
         break;
     }
 
@@ -510,14 +510,14 @@ document.addEventListener( 'keydown', key_down, false );
 // function key_up( event )
 // {
 //     var cursor = document.getElementsByClassName( 'cursor' );
-    
+
 //     // standard
 //     //cursor[ cursor.length - 1 ].style.animationPlayState = "running";
 //     cursor[ cursor.length - 1 ].style.animationIterationCount = 'infinite';
-    
+
 //     // opera, safari, chrome
 //     //cursor[ cursor.length - 1 ].style.WebkitAnimationPlayState = "running";
-    
+
 //     console.log( 'key up' );
 // }
 
