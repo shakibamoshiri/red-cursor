@@ -356,7 +356,7 @@ function Command( screen, path )
             break;
 
             case '~':
-            path.pwd = [ '', 'home', 'guest' ];
+            path.pwd = [ 'home', 'Shakiba' ];
             break;
 
             case '/':
@@ -369,9 +369,9 @@ function Command( screen, path )
 
 
             case '..':
-            // if the last index of pwd equals "guest", then we do not have
+            // if the last index of pwd equals "Shakiba", then we do not have
             // permission to go further, it is just a dummy
-            if( cwd === 'guest' )
+            if( cwd === 'Shakiba' )
             {
                 text( "cd: " + path.pwd[ 1 ] + "/: Permission denied" );
                 screen.newline();
