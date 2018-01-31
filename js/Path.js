@@ -5,7 +5,7 @@ console.log( '2. Path.js was loaded.' );
 function Path()
 {
     this.PATH = '/home/guest/bin/';
-    
+
     this.pwd =
         [
             '',
@@ -39,7 +39,7 @@ function Path()
                 'README'    : 'readable',
             },
 
-	        'bin' :
+            'bin' :
             {
                 'ls'      : 'executable',
                 'df'      : 'executable',
@@ -56,33 +56,33 @@ function Path()
                 'ii'      : 'executable',
                 'open'      : 'executable',
             },
-	        'Desktop'   : { },
-	        'Downloads' : { },
-	        'Documents' :
+            'Desktop'   : { },
+            'Downloads' : { },
+            'Documents' :
             {
                 'about-me' : 'readable',
                 'project'  : 'readable',
                 'skill'    : 'readable',
             },
-	        'Music'     : {
+            'Music'     : {
                 'README' : 'readable',
                 'alexander-rybak-fairytale.mp3' : 'media',
             },
-	        'Videos'    : { 'electron.mp4' : 'media' },
-	        'Pictures'  :
+            'Videos'    : { 'electron.mp4' : 'media' },
+            'Pictures'  :
             {
                 'README' : 'readable',
                 'at-mountain.jpg' : 'media',
                 'scorpion-as-pet.jpg' : 'media',
                 'my-hand-bead.jpg' : 'media',
             },
-	        'Templates' : { },
-	        'workspace' : { },
-	        'Public'    : { }
+            'Templates' : { },
+            'workspace' : { },
+            'Public'    : { }
         };
 
     this.readable =
-	{
+    {
         guest :
         {
             'README' :
@@ -129,7 +129,7 @@ function Path()
             'scorpion-as-pet.jpg' : 'resizable=yes,top=200,left=200,width=1050,height=850',
             'my-hand-bead.jpg' : 'resizable=yes,top=200,left=200,width=650,height=650',
         },
-        
+
         Videos :
         {
             'electron.mp4' : 'resizable=yes,top=200,left=200,width=820,height=620'
@@ -169,8 +169,8 @@ function Path()
                 "‘Cause I don’t care if I lose my mind",
                 "I’m already cursed",
             ],
-            
-            'alexander-rybak-fairytale.mp3' : 'resizable=yes,top=200,left=200,width=300,height=50',  
+
+            'alexander-rybak-fairytale.mp3' : 'resizable=yes,top=200,left=200,width=300,height=50',
         },
         Documents :
         {
@@ -232,7 +232,7 @@ function Path()
             ]
 
         }
-	};
+    };
 
     // return current working directory
     this.cwd = function( name )
