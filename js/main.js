@@ -8,6 +8,9 @@ var path    = new Path();
 var screen  = new Screen();
 var command = new Command( screen, path );
 
+// set the font-size
+doc.tag( 'body' )[ 0 ].style.fontSize = '15px';
+
 // by default the background color will be as the same gnome-Terminal on Ubuntu
 screen.background( '#2C001E' );
 
@@ -109,7 +112,7 @@ function key_down( event )
         {
             command.histories.push( screen.input_buffer );
             command.h_index = command.histories.length;
-            
+
             if( enable_log )
             {
                 console.log( 'save command: (' + screen.input_buffer + ') to => history[' + command.h_index + ']' );
