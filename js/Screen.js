@@ -132,6 +132,12 @@ function Screen( svg )
 
     this.newline = function()
     {
+        // reset svg class variables to start fresh on each line
+        svg.start_point = 0;
+        svg.end_point = 0;
+        svg.tip_point = 0;
+        svg.text_x = 0;
+
         var br = document.createElement( 'BR' );
         document.getElementById( 'terminal' ).appendChild( br );
     }
