@@ -28,23 +28,28 @@ SOFTWARE.
 
 console.log( '1. init.js was loaded' );
 
-// let doc =
-//     {
-//         byId : function( name )
-//         {
-//             return document.getElementById( name );
-//         },
+var doc =
+    {
+        id : function( name )
+        {
+            return document.getElementById( name );
+        },
 
-//         byTagName : function( name, index )
-//         {
-//             return document.getElementsByTagName( name )[ index ];
-//         },
+        tag : function( name )
+        {
+            return document.getElementsByTagName( name );
+        },
 
-//         byClassName : function( name, index )
-//         {
-//             return document.getElementsByClassName( name )[ index ];
-//         },
-//     };
+        class : function( name )
+        {
+            return document.getElementsByClassName( name );
+        },
+
+        name : function( name )
+        {
+            return document.getElementsByName( name );
+        },
+    };
 
 // global variable to turn console.log() on or off
 // do not modify this flag anywhere you see it
