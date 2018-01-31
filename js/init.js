@@ -56,4 +56,4 @@ var doc =
 var enable_log = false;
 
 // version of the application
-var RED_CURSOR_VERSION = 'v1.0.0';
+var RED_CURSOR_VERSION = 'v2.0.0';

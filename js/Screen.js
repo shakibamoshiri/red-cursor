@@ -15,7 +15,7 @@ function Screen( svg )
     // 𐌠│ ┃ ┆ ▕ ▍
     this.cursor_shape = ' ';
 
-    this.input_buffer = '';
+    this.line_buffer = '';
 
     // change background color by: fs command
     this.background = function( color )
@@ -160,7 +160,7 @@ function Screen( svg )
         // else
         if( name === 'line' )
         {
-            var line = this.input_buffer.replace( /#[^0-9abcdef]+.*/ig, '' );
+            var line = this.line_buffer.replace( /#[^0-9abcdef]+.*/ig, '' );
             if( line.startsWith( '#' ) )
             {
                 return '';

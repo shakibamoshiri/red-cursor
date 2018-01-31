@@ -105,18 +105,18 @@ function key_down( event )
         // (?=.*[^,] from ) ([a-zA-Z(*)]+) *,?
 
         // copy the full row contents
-        screen.input_buffer = row.innerHTML;
+        screen.line_buffer = row.innerHTML;
 
         // store this line for history command
         // trim() is for prevent empty and space to be stored
-        if( screen.input_buffer.trim() !== '' )
+        if( screen.line_buffer.trim() !== '' )
         {
-            command.histories.push( screen.input_buffer );
+            command.histories.push( screen.line_buffer );
             command.h_index = command.histories.length;
 
             if( enable_log )
             {
-                console.log( 'save command: (' + screen.input_buffer + ') to => history[' + command.h_index + ']' );
+                console.log( 'save command: (' + screen.line_buffer + ') to => history[' + command.h_index + ']' );
             }
         }
 
@@ -144,7 +144,7 @@ function key_down( event )
         }
 
         //
-        screen.input_buffer = '';
+        screen.line_buffer = '';
         break;
 
         case 'Backspace':
@@ -172,7 +172,7 @@ function key_down( event )
             }
 
             row.innerHTML = result;
-            screen.input_buffer = result;
+            screen.line_buffer = result;
         }
         break;
 
@@ -198,7 +198,7 @@ function key_down( event )
             }
 
             row.innerHTML = result;
-            screen.input_buffer = result;
+            screen.line_buffer = result;
 
             // more the cursor one unit (=char_width) to the right, it is vital!
             cursor.style.left = ( ( cursor_pos + 1 ) * screen.char_width ) + 'px';
@@ -252,8 +252,8 @@ function key_down( event )
             // stops process Tab
             if( match_counter === 1 )
             {
-                screen.input_buffer = match;
-                screen.add( 'SPAN', 'row', screen.input_buffer );
+                screen.line_buffer = match;
+                screen.add( 'SPAN', 'row', screen.line_buffer );
             }
             else
             {
@@ -309,8 +309,8 @@ function key_down( event )
             screen.prompt( path.get() );
             if( match_counter === 1 )
             {
-                screen.input_buffer = row_tab + match.substr( word2.length, match.length );
-                screen.add( 'SPAN', 'row', screen.input_buffer );
+                screen.line_buffer = row_tab + match.substr( word2.length, match.length );
+                screen.add( 'SPAN', 'row', screen.line_buffer );
             }
             else
             {
@@ -392,10 +392,10 @@ function key_down( event )
             ++command.h_index;
             if( command.h_index == length )
             {
-                row.innerHTML = screen.input_buffer;
+                row.innerHTML = screen.line_buffer;
                 if( enable_log )
                 {
-                    console.log( 'restore the last line', screen.input_buffer );
+                    console.log( 'restore the last line', screen.line_buffer );
                 }
             }
             else
@@ -507,12 +507,12 @@ function key_down( event )
             }
 
             row.innerHTML = result;
-            screen.input_buffer = result;
+            screen.line_buffer = result;
         }
         else
         {
             row.innerHTML += char;
-            screen.input_buffer += char;
+            screen.line_buffer += char;
         }
 
         break;
