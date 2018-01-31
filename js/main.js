@@ -104,7 +104,12 @@ function key_down( event )
         if( screen.input_buffer.trim() !== '' )
         {
             command.histories.push( screen.input_buffer );
-            command.h_index++;
+            command.h_index = command.histories.length;
+            
+            if( enable_log )
+            {
+                console.log( 'save command: (' + screen.input_buffer + ') to => history[' + command.h_index + ']' );
+            }
         }
 
         // now this line is clean, without any comments
