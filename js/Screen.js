@@ -49,7 +49,7 @@ function Screen()
             }
             document.getElementsByTagName( 'BODY' )[ 0 ].style.fontSize = size + 'px';
         }
-        
+
         screen.char_width = screen.get( 'cursor' ).getBoundingClientRect().width;
         // for Opera, Safari, Chorome
         screen.char_width = Math.floor( screen.char_width );
@@ -59,10 +59,10 @@ function Screen()
     this.text = function( string, class_name = 'text' )
     {
         var span = document.createElement( 'SPAN' );
-        
+
         var contents = document.createTextNode( string );
         span.appendChild( contents );
-        
+
         document.getElementById( 'terminal' ).appendChild( span );
         span.classList.add( class_name );
     }
@@ -70,19 +70,19 @@ function Screen()
     // 
     //     #  ⏵ ▶ ▷ ⟩ ⩥  ⫸  ⮞ ⯈               ＞
     // # 𐌠│ ┃ ┆ ▕ ▍ ⚊ ❭ ❯ ❱ ❳ 〔〕  
-    // print prompt 
+    // print prompt
     this.prompt = function( ps1 = '/home/guest ❱ ' )
     {
         var prompt = document.createElement( 'SPAN' );
 
         var contents = document.createTextNode( ps1 );
         prompt.appendChild( contents );
-        
+
         document.getElementById( 'terminal' ).appendChild( prompt );
         prompt.className = 'prompt';
     }
 
-    // add a arbitrary tag to the terminal 
+    // add a arbitrary tag to the terminal
     this.add = function( tag_name, class_name, string )
     {
         var tag  = document.createElement( tag_name );
