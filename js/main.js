@@ -6,6 +6,7 @@ doc.tag( 'title' )[ 0 ].innerHTML = 'red-cursor: ' + RED_CURSOR_VERSION;
 
 var path    = new Path();
 var screen  = new Screen();
+var screen  = new Screen( svg );
 var command = new Command( screen, path );
 
 // set the font-size

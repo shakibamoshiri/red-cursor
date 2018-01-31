@@ -74,12 +74,11 @@ function Screen()
     this.prompt = function( ps1 = '/home/guest ❱ ' )
     {
         var prompt = document.createElement( 'SPAN' );
-
-        var contents = document.createTextNode( ps1 );
-        prompt.appendChild( contents );
-
         document.getElementById( 'terminal' ).appendChild( prompt );
         prompt.className = 'prompt';
+
+        // create polygon, text passed on ps1
+        svg.create( ps1 );
     }
 
     // add a arbitrary tag to the terminal
@@ -172,6 +171,10 @@ function Screen()
     {
         document.getElementById( 'terminal' ).innerHTML = '';
         this.nrow = 0;
+
+        // when we clear the screen the previous span.character is cleaned
+        // we should add it again because svg class needs it
+        this.add( 'SPAN', 'character', ' ' );
     }
 
 }
