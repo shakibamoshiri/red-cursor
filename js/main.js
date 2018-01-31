@@ -1,7 +1,8 @@
 "use strict";
 
 console.log( '5. main.js was loaded.' );
-console.log( 'Welcome to red-cursor, v' + TR_VERSION );
+console.log( 'Welcome to red-cursor, v' + RED_CURSOR_VERSION );
+doc.tag( 'title' )[ 0 ].innerHTML = 'red-cursor' + RED_CURSOR_VERSION;
 
 var path    = new Path();
 var screen  = new Screen();
