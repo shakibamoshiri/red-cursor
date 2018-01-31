@@ -4,18 +4,17 @@ console.log( '2. Path.js was loaded.' );
 
 function Path()
 {
-    this.PATH = '/home/guest/bin/';
+    this.PATH = '/home/Shakiba/bin/';
 
     this.pwd =
         [
-            '',
             'home',
-            'guest',
+            'Shakiba',
         ];
 
     this.get = function()
     {
-        return this.pwd.join( '/' ) + ' ❱ ';
+        return this.pwd.join( '/' );
     }
 
     // this.list = [];
@@ -23,7 +22,7 @@ function Path()
     // all files and directories
     this.root =
         {
-            'guest' :
+            'Shakiba' :
             {
                 'bin'       : 'directory',
                 'Desktop'   : 'directory',
@@ -83,7 +82,7 @@ function Path()
 
     this.readable =
     {
-        guest :
+        Shakiba :
         {
             'README' :
             [

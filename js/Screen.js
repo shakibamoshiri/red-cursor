@@ -71,7 +71,7 @@ function Screen( svg )
     //     #  ⏵ ▶ ▷ ⟩ ⩥  ⫸  ⮞ ⯈               ＞
     // # 𐌠│ ┃ ┆ ▕ ▍ ⚊ ❭ ❯ ❱ ❳ 〔〕  
     // print prompt
-    this.prompt = function( ps1 = '/home/Shakiba' )
+    this.prompt = function( ps1 = 'home/Shakiba' )
     {
         var prompt = document.createElement( 'SPAN' );
         document.getElementById( 'terminal' ).appendChild( prompt );
