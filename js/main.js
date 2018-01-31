@@ -11,13 +11,16 @@ var command = new Command( screen, path );
 // by default the background color will be as the same gnome-Terminal on Ubuntu
 screen.background( '#2C001E' );
 
+// guide the user, after Control + l or clear, is is cleaned
+screen.add( 'SPAN', 'guide', 'type help or press Ctrl + h' );
+
+// for calculation character width.
+screen.add( 'SPAN', 'character', ' ' );
+
 screen.prompt();
 screen.add( 'SPAN', 'row' );
 screen.cursor();
 screen.newline();
-
-// guide the user, after Control + l or clear, is is cleaned
-screen.add( 'SPAN', 'guide', 'type help or press Ctrl + h' );
 
 // calculate size of a single character
 // we already have '_' so we can use that
