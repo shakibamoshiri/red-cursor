@@ -251,7 +251,8 @@ function key_down( event )
             // stops process Tab
             if( match_counter === 1 )
             {
-                screen.add( 'SPAN', 'row', match );
+                screen.input_buffer = match;
+                screen.add( 'SPAN', 'row', screen.input_buffer );
             }
             else
             {
@@ -307,7 +308,8 @@ function key_down( event )
             screen.prompt( path.get() );
             if( match_counter === 1 )
             {
-                screen.add( 'SPAN', 'row', row_tab + match.substr( word2.length, match.length ) );
+                screen.input_buffer = row_tab + match.substr( word2.length, match.length );
+                screen.add( 'SPAN', 'row', screen.input_buffer );
             }
             else
             {
