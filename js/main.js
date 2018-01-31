@@ -5,7 +5,7 @@ console.log( 'Welcome to red-cursor: ' + RED_CURSOR_VERSION );
 doc.tag( 'title' )[ 0 ].innerHTML = 'red-cursor: ' + RED_CURSOR_VERSION;
 
 var path    = new Path();
-var screen  = new Screen();
+var svg     = new Svg();
 var screen  = new Screen( svg );
 var command = new Command( screen, path );
 

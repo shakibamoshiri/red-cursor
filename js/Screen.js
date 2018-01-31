@@ -2,7 +2,7 @@
 
 console.log( '3. Screen.js was loaded.' );
 
-function Screen()
+function Screen( svg )
 {
     //this.line = [];
 
