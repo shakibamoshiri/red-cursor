@@ -91,7 +91,24 @@ span
     /* color: #FF8C00; */
     color: #0FF;
 }
+/***************************************/
+svg
+{
+    margin: 0;
+    padding: 0;
+    color: #F0F;
+    display: block;
+}
+.cwd
+{
+    fill: #0FF;
+}
 
+.path
+{
+    fill: #FFF;
+}
+/***************************************/
 .readable
 {
     color: #FFF;
