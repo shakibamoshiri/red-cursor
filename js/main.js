@@ -39,7 +39,7 @@ function key_down( event )
     // see init.js
     if( enable_log )
     {
-        console.log( "character is: '" + char + "'" );
+        console.log( "keystroke is: '" + char + "'" );
     }
 
     // store each row because we might clear it, or modify it later
