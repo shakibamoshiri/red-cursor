@@ -101,9 +101,9 @@ function Path()
                 '[open] a media when you like.',
                 'Also you can type [help] or just press Control + h',
                 '',
-                'red-cursor copyright (C) 2017 Shakiba',
+                'red-cursor copyright (C) 2017..' + ( ( Date().toString().split( ' ' ) )[3] ),
                 'https://github.com/k-five/red-cursor',
-                // 'copyright (C) 2017..' + ( ( Date().toString().split( ' ' ) )[3] ) + ' Shakiba',
+                'Shakiba Moshiri',
             ]
         },
         Pictures  :
