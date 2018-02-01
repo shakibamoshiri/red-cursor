@@ -335,6 +335,9 @@ function key_down( event )
         case 'F11':
         case 'F12':
 
+        // in Chrome
+        case 'Meta':
+
         // should be ignored:
         case 'Control':
         case 'Alt':
