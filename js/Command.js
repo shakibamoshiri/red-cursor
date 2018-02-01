@@ -278,7 +278,7 @@ function Command( screen, path )
             case 'l':
             screen.clear()
             screen.prompt( path.get() );
-            screen.add( 'SPAN', 'row', screen.input_buffer );
+            screen.add( 'SPAN', 'row', screen.line_buffer );
             screen.cursor();
             screen.newline();
 
