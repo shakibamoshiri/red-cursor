@@ -36,14 +36,14 @@ Apart from designing it for myself, I tried to make it more useful for someone; 
 and `CSS` and `HTML` deeply.  
 The app is based on 3 core things:  
  1. `span` tag and `br` tag in HTML  
- 2. **animation** in `CSS  
- 3. **DOM** modification with JavaScript`  
+ 2. **animation** in `CSS`  
+ 3. **DOM** modification with `JavaScript`  
 
 
 ![4](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.4.png)  
 The most interesting part of the app is **cursor movement** which is based on `animation` and asynchronous  
 nature in `CSS`. Also modifying the **innerHTML** of a tag (= line) is a little tricky so that users can feel  
-that they are encountered a real **Terminal Emulator** which in Linux it is usually down by **readlihne** library.  
+that they are encountered a real **Terminal Emulator** which in Linux it is usually done by **GNU readlihne** library.  
 
 
 ![5](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.5.png)  
