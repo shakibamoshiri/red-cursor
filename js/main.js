@@ -148,6 +148,9 @@ function key_down( event )
         break;
 
         case 'Backspace':
+        // prevent Vivaldi browser from going back
+        event.preventDefault();
+        
         // and how many character we have in our row
         var width = row.innerHTML.length;
 
