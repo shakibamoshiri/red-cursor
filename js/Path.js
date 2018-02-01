@@ -67,7 +67,7 @@ function Path()
                 'README' : 'readable',
                 'alexander-rybak-fairytale.mp3' : 'media',
             },
-            'Videos'    : { 'electron.mp4' : 'media' },
+            'Videos'    : { 'video.mp4' : 'media' },
             'Pictures'  :
             {
                 'README' : 'readable',
@@ -131,7 +131,7 @@ function Path()
 
         Videos :
         {
-            'electron.mp4' : 'resizable=yes,top=200,left=200,width=820,height=620'
+            'video.mp4' : 'resizable=yes,top=200,left=200,width=820,height=620'
         },
 
         Music :
