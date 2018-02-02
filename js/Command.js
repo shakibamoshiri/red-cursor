@@ -4,7 +4,7 @@ console.log( '4. Command.js was loaded.' );
 
 function Command( screen, path )
 {
-    var cd    = /^ *cd  *(~|\/|\.|\.\.|\w+)?\/? *;?$/;
+    var cd    = /^ *cd *(~|\/|\.|\.\.|\w+)?\/? *;?$/;
     var ls    = /^ *ls *;?$/;
     var clear = /^ *clear *;?$/;
     var echo  = /^ *(echo *|echo .*?);?$/;
