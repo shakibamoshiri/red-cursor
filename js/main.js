@@ -150,7 +150,7 @@ function key_down( event )
         case 'Backspace':
         // prevent Vivaldi browser from going back
         event.preventDefault();
-        
+
         // and how many character we have in our row
         var width = row.innerHTML.length;
 
@@ -216,6 +216,11 @@ function key_down( event )
         var cwd = path.cwd();
         var row_tab = row.innerHTML;
 
+        var reserve_space = 20;
+        var format_width  = ( reserve_space * screen.char_width );
+        var widnow_width  = window.innerWidth;
+        var max_width     = format_width;
+
         // for retrieve commands
         if( row_tab.indexOf( ' ' ) == -1 )
         {
@@ -236,16 +241,26 @@ function key_down( event )
                 // if this file start-with that characters that user has entered
                 // then we print those, for example if the row_tab is: d
                 // the df, and date will be printed
-                if( file.startsWith( row_tab ) )
+                if( file.startsWith( row_tab ) === true )
                 {
                     match = file;
                     ++match_counter;
 
-                    screen.text( file, files[ file ] );
-                    screen.newline();
+                    // concatenation file name + ( 20 - file.length ) space for formatting output
+                    // like printf( "%-20s", file );
+                    screen.text( file + " ".repeat( reserve_space - file.length ), files[ file ] );
+                    max_width += format_width;
+
+                    // if we are close/near to edge of window then we should add new line
+                    if( max_width >= widnow_width )
+                    {
+                        screen.newline();
+                        max_width = format_width;
+                    }
                 }
             }
 
+            screen.newline();
             screen.hide_cursor();
             screen.prompt( path.get() );
 
@@ -264,6 +279,7 @@ function key_down( event )
                 // just for getting more characters from the user
                 screen.add( 'SPAN', 'row', row_tab );
             }
+
             screen.cursor();
             screen.newline();
         }
@@ -280,6 +296,7 @@ function key_down( event )
             var match = '';
             var match_counter = 0;
 
+            // other directories except path.root.bin
             var files = path.root[ cwd ];
             var word2 = row_tab.substr( row_tab.lastIndexOf( ' ' ) + 1, row_tab.length );
             if( files[ word2 ] !== undefined )
@@ -298,18 +315,29 @@ function key_down( event )
 
             for( var file in files )
             {
-                if( file.startsWith( word2 ) )
+                if( file.startsWith( word2 ) === true )
                 {
                     match = file;
                     ++match_counter;
 
-                    screen.text( file, files[ file ] );
-                    screen.newline();
+                    // concatenation file name + ( 20 - file.length ) space for formatting output
+                    // like printf( "%-20s", file );
+                    screen.text( file + " ".repeat( reserve_space - file.length ), files[ file ] );
+                    max_width += format_width;
+
+                    // if we are close/near to edge of window then we should add new line
+                    if( max_width >= widnow_width )
+                    {
+                        screen.newline();
+                        max_width = format_width;
+                    }
                 }
             }
 
+            screen.newline();
             screen.hide_cursor();
             screen.prompt( path.get() );
+
             if( match_counter === 1 )
             {
                 screen.line_buffer = row_tab + match.substr( word2.length, match.length );
@@ -319,6 +347,7 @@ function key_down( event )
             {
                 screen.add( 'SPAN', 'row', row_tab );
             }
+
             screen.cursor();
             screen.newline();
         }
