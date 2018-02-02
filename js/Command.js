@@ -198,7 +198,7 @@ function Command( screen, path )
             break;
 
             // open new table and goes to source code on gitup
-            case 't':
+            case 'r':
             window.open( 'https://github.com/k-five/red-cursor', '_blank').focus();
             break;
 
