@@ -300,10 +300,10 @@ function Command( screen, path )
             screen.newline();
 
             // remove the guide on the screen, if it is the first time
-            var guide = document.getElementsByClassName( 'guide' )[ 0 ];
+            var guide = doc.class( 'guide' )[ 0 ];
             if( guide !== undefined )
             {
-                document.getElementById( 'terminal' ).removeChild( guide );
+                doc.id( 'terminal' ).removeChild( guide );
             }
             break;
 
@@ -500,7 +500,7 @@ function Command( screen, path )
     {
         screen.add( 'IMG', 'gif' );
 
-        var gif = document.getElementsByClassName( 'gif' );
+        var gif = doc.class( 'gif' );
         gif[ gif.length -1 ].src = './Pictures/ii.gif';
 
         screen.newline();
@@ -549,10 +549,10 @@ function Command( screen, path )
             ++index;
         }
 
-        var guide = document.getElementsByClassName( 'guide' )[ 0 ];
+        var guide = doc.class( 'guide' )[ 0 ];
         if( guide !== undefined )
         {
-            document.getElementById( 'terminal' ).removeChild( guide );
+            doc.id( 'terminal' ).removeChild( guide );
         }
     }
 
@@ -563,7 +563,7 @@ function Command( screen, path )
         var contents = document.createTextNode( string );
         span.appendChild( contents );
 
-        document.getElementById( 'terminal' ).appendChild( span );
+        doc.id( 'terminal' ).appendChild( span );
         span.classList.add( class_name );
     }
 

@@ -22,7 +22,7 @@ function Screen( svg )
     {
         if( color === undefined )
         {
-            document.getElementsByTagName( 'HTML' )[ 0 ].style.backgroundColor = '#2C001E';
+            doc.tag( 'HTML' )[ 0 ].style.backgroundColor = '#2C001E';
         }
         else
         {
@@ -30,7 +30,7 @@ function Screen( svg )
             {
                 console.log( 'change background color to: ' + color );
             }
-            document.getElementsByTagName( 'HTML' )[ 0 ].style.backgroundColor = color;
+            doc.tag( 'HTML' )[ 0 ].style.backgroundColor = color;
         }
     }
 
@@ -39,7 +39,7 @@ function Screen( svg )
     {
         if( size === undefined )
         {
-            document.getElementsByTagName( 'BODY' )[ 0 ].style.fontSize = '15px';
+            doc.tag( 'BODY' )[ 0 ].style.fontSize = '15px';
         }
         else
         {
@@ -47,7 +47,7 @@ function Screen( svg )
             {
                 console.log( 'change font-size to: ' + size );
             }
-            document.getElementsByTagName( 'BODY' )[ 0 ].style.fontSize = size + 'px';
+            doc.tag( 'BODY' )[ 0 ].style.fontSize = size + 'px';
         }
 
         screen.char_width = screen.get( 'cursor' ).getBoundingClientRect().width;
@@ -63,7 +63,7 @@ function Screen( svg )
         var contents = document.createTextNode( string );
         span.appendChild( contents );
 
-        document.getElementById( 'terminal' ).appendChild( span );
+        doc.id( 'terminal' ).appendChild( span );
         span.classList.add( class_name );
     }
 
@@ -74,7 +74,7 @@ function Screen( svg )
     this.prompt = function( ps1 = 'home/Shakiba' )
     {
         var prompt = document.createElement( 'SPAN' );
-        document.getElementById( 'terminal' ).appendChild( prompt );
+        doc.id( 'terminal' ).appendChild( prompt );
         prompt.className = 'prompt';
 
         // create polygon, text passed on ps1
@@ -90,7 +90,7 @@ function Screen( svg )
             var contents = document.createTextNode( string );
             tag.appendChild( contents );
         }
-        document.getElementById( 'terminal' ).appendChild( tag );
+        doc.id( 'terminal' ).appendChild( tag );
         tag.classList.add( class_name );
     }
 
@@ -105,7 +105,7 @@ function Screen( svg )
         var underscore = document.createTextNode( this.cursor_shape );
         cursor.appendChild( underscore );
 
-        document.getElementById( 'terminal' ).appendChild( cursor );
+        doc.id( 'terminal' ).appendChild( cursor );
         cursor.className = 'cursor';
 
         // each time it is created, it should be 0
@@ -122,7 +122,7 @@ function Screen( svg )
     this.hide_cursor = function()
     {
         // we can hide the cursor, it is much faster than remove-child
-        var cursor = document.getElementsByClassName( 'cursor' )[ this.nrow - 1 ];
+        var cursor = doc.class( 'cursor' )[ this.nrow - 1 ];
         cursor.style.display = 'none';
 
         // also we can remove it
@@ -139,7 +139,7 @@ function Screen( svg )
         svg.text_x = 0;
 
         var br = document.createElement( 'BR' );
-        document.getElementById( 'terminal' ).appendChild( br );
+        doc.id( 'terminal' ).appendChild( br );
     }
 
     this.get = function( name )
@@ -169,13 +169,13 @@ function Screen( svg )
         }
         else
         {
-            return document.getElementsByClassName( name )[ this.nrow - 1 ];
+            return doc.class( name )[ this.nrow - 1 ];
         }
     }
 
     this.clear = function()
     {
-        document.getElementById( 'terminal' ).innerHTML = '';
+        doc.id( 'terminal' ).innerHTML = '';
         this.nrow = 0;
 
         // when we clear the screen the previous span.character is cleaned

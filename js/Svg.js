@@ -75,7 +75,7 @@ Svg.prototype.text = function( string )
 
     var contents = document.createTextNode( string );
     text.appendChild( contents );
-    var svg = document.getElementsByClassName( 'svg' );
+    var svg = doc.class( 'svg' );
     svg[ svg.length - 1 ].appendChild( text );
 }
 
@@ -86,7 +86,7 @@ Svg.prototype.polygon = function( text, className = '' )
     polygon.setAttribute( 'fill', '#FFF' );
     polygon.setAttribute( 'points', this.find_points( text ) );
     polygon.setAttribute( 'class', className );
-    var svg = document.getElementsByClassName( 'svg' );
+    var svg = doc.class( 'svg' );
     svg[ svg.length - 1 ].appendChild( polygon );
 
     this.text( text );
@@ -98,8 +98,8 @@ Svg.prototype.polygon = function( text, className = '' )
 Svg.prototype.create = function( text )
 {
     // use span.character to found out about width and height of a single character
-    this.char_width  = document.querySelector( '.character' ).getBoundingClientRect().width;
-    this.char_height = document.querySelector( '.character' ).getBoundingClientRect().height;
+    this.char_width  = doc.class( 'character' )[ 0 ].getBoundingClientRect().width;
+    this.char_height = doc.class( 'character' )[ 0 ].getBoundingClientRect().height;
     this.font_size   = parseInt( document.body.style.fontSize );
 
     var svg = document.createElementNS( this.svgns, 'svg' );
@@ -107,7 +107,7 @@ Svg.prototype.create = function( text )
     svg.setAttribute( 'height', this.char_height );
     svg.setAttributeNS( 'http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     svg.setAttribute( 'class', 'svg' );
-    var prompt = document.getElementsByClassName( 'prompt' );
+    var prompt = doc.class( 'prompt' );
     prompt[ prompt.length - 1 ].appendChild( svg );
 
     var dirs = text.split( '/' );
