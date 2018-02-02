@@ -418,23 +418,18 @@ function Command( screen, path )
     this.df = function()
     {
         var df =
-	        [
-	            'Filesystem     1K-blocks     Used Available Use% Mounted on',
-	            'udev             1011376        0   1011376   0% /dev',
-	            'tmpfs             206316     8956    197360   5% /run',
-	            '/dev/sda3      196730180 25927424 160786400  14% /',
-	            'tmpfs            1031568      596   1030972   1% /dev/shm',
-	            'tmpfs               5120        4      5116   1% /run/lock',
-	            'tmpfs            1031568        0   1031568   0% /sys/fs/cgroup',
-	            'tmpfs             206316       60    206256   1% /run/user/1000'
-	        ];
+            [
+                'Filesystem     1K-blocks     Used Available Use% Mounted on',
+                'udev             1011376        0   1011376   0% /dev',
+                'tmpfs             206316     8956    197360   5% /run',
+                '/dev/sda3      196730180 25927424 160786400  14% /',
+                'tmpfs            1031568      596   1030972   1% /dev/shm',
+                'tmpfs               5120        4      5116   1% /run/lock',
+                'tmpfs            1031568        0   1031568   0% /sys/fs/cgroup',
+                'tmpfs             206316       60    206256   1% /run/user/1000'
+            ];
 
-        var index_max = df.length;
-        while( index_max-- )
-        {
-            text( df[ 7 - index_max ] );
-            screen.newline();
-        }
+        read( df );
     }
 
     this.cat = function( arg )
@@ -509,10 +504,10 @@ function Command( screen, path )
     this.help = function()
     {
         var h =
-	        [
+            [
                 'cmd:     arg:     des:',
                 '......................',
-	            'ls       No       list files and directories' ,
+                'ls       No       list files and directories' ,
                 'cd       Yes      navigation between directories',
                 'bc       Yes      set/reset background color',
                 'fs       Yes      set/reset font size',
@@ -538,16 +533,9 @@ function Command( screen, path )
                 "Alter   + d-s  : print my skill    | cd Documents; cat skill",
                 "Alter   + d-p  : print my project  | cd Documents; cat project",
                 "Alter   + d-a  : print about-me | cd Documents; cat about-me",
-	        ];
+            ];
 
-        var length = h.length;
-        var index = 0
-        while( index < length  )
-        {
-            text( h[ index ] );
-            screen.newline();
-            ++index;
-        }
+        read( h );
 
         var guide = doc.class( 'guide' )[ 0 ];
         if( guide !== undefined )
