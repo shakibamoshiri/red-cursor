@@ -2,7 +2,7 @@
   
 A simple, but still beautiful **Terminal Emulator**.  
 This is an app with pure `JavaScript`, `HTML` and `CSS`.  
-[Live-Demo](https://k-five.github.io/)  
+# [Live-Demo](https://k-five.github.io/red-cursor/)  
 
 
 ![1](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.1.png)  
