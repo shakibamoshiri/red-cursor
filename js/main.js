@@ -16,10 +16,10 @@ doc.id( 'body' ).style.fontSize = '15px';
 screen.background( '#2C001E' );
 
 // guide the user, after Control + l or clear, is is cleaned
-screen.add( 'SPAN', 'guide', 'type help or press Ctrl + h' );
+screen.add( 'SPAN', 'guide', 'type help or press Ctrl + h', 'id' );
 
 // for calculation character width.
-screen.add( 'SPAN', 'character', ' ' );
+screen.add( 'SPAN', 'screen-character', ' ', 'id' );
 
 screen.prompt();
 screen.add( 'SPAN', 'row' );

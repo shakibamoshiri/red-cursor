@@ -98,8 +98,8 @@ Svg.prototype.polygon = function( text, className = '' )
 Svg.prototype.create = function( text )
 {
     // use span.character to found out about width and height of a single character
-    this.char_width  = doc.class( 'character' )[ 0 ].getBoundingClientRect().width;
-    this.char_height = doc.class( 'character' )[ 0 ].getBoundingClientRect().height;
+    this.char_width  = doc.id( 'screen-character' ).getBoundingClientRect().width;
+    this.char_height = doc.id( 'screen-character' ).getBoundingClientRect().height;
     this.font_size   = parseInt( document.body.style.fontSize );
 
     var svg = document.createElementNS( this.svgns, 'svg' );

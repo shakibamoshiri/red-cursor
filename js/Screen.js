@@ -82,7 +82,7 @@ function Screen( svg )
     }
 
     // add a arbitrary tag to the terminal
-    this.add = function( tag_name, class_name, string )
+    this.add = function( tag_name, class_name, string, id )
     {
         var tag  = document.createElement( tag_name );
         if( string !== undefined )
@@ -90,8 +90,17 @@ function Screen( svg )
             var contents = document.createTextNode( string );
             tag.appendChild( contents );
         }
+
+        if( id !== undefined )
+        {
+            tag.id = class_name;
+        }
+        else
+        {
+            tag.classList.add( class_name );
+        }
+
         doc.id( 'terminal' ).appendChild( tag );
-        tag.classList.add( class_name );
     }
 
 
@@ -178,9 +187,9 @@ function Screen( svg )
         doc.id( 'terminal' ).innerHTML = '';
         this.nrow = 0;
 
-        // when we clear the screen the previous span.character is cleaned
+        // when we clear the screen the previous span.screen-font-size is cleaned
         // we should add it again because svg class needs it
-        this.add( 'SPAN', 'character', ' ' );
+        this.add( 'SPAN', 'screen-character', ' ', 'id' );
     }
 
 }
