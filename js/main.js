@@ -2,7 +2,7 @@
 
 console.log( '5. main.js was loaded.' );
 console.log( 'Welcome to red-cursor: ' + RED_CURSOR_VERSION );
-doc.tag( 'title' )[ 0 ].innerHTML = 'red-cursor: ' + RED_CURSOR_VERSION;
+doc.tag( 'title' )[ 0 ].textContent = 'red-cursor: ' + RED_CURSOR_VERSION;
 
 var path    = new Path();
 var svg     = new Svg();
@@ -105,7 +105,7 @@ function key_down( event )
         // (?=.*[^,] from ) ([a-zA-Z(*)]+) *,?
 
         // copy the full row contents
-        screen.line_buffer = row.innerHTML;
+        screen.line_buffer = row.textContent;
 
         // store this line for history command
         // trim() is for prevent empty and space to be stored
@@ -152,12 +152,12 @@ function key_down( event )
         event.preventDefault();
 
         // and how many character we have in our row
-        var width = row.innerHTML.length;
+        var width = row.textContent.length;
 
         if( width > ( cursor_pos * -1 ) )
         {
-            var array = row.innerHTML.split( "" );
-            row.innerHTML = '';
+            var array = row.textContent.split( "" );
+            row.textContent = '';
             var result = '';
 
             var index  = 0;
@@ -174,7 +174,7 @@ function key_down( event )
                 ++index;
             }
 
-            row.innerHTML = result;
+            row.textContent = result;
             screen.line_buffer = result;
         }
         break;
@@ -182,8 +182,8 @@ function key_down( event )
         case 'Delete':
         if( ( cursor_pos * -1 ) > 0 )
         {
-            var array = row.innerHTML.split( "" );
-            row.innerHTML = '';
+            var array = row.textContent.split( "" );
+            row.textContent = '';
             var result = '';
 
             var index  = 0;
@@ -200,7 +200,7 @@ function key_down( event )
                 ++index;
             }
 
-            row.innerHTML = result;
+            row.textContent = result;
             screen.line_buffer = result;
 
             // more the cursor one unit (=char_width) to the right, it is vital!
@@ -214,7 +214,7 @@ function key_down( event )
 
         // current working directory
         var cwd = path.cwd();
-        var row_tab = row.innerHTML;
+        var row_tab = row.textContent;
 
         var reserve_space = 20;
         var format_width  = ( reserve_space * screen.char_width );
@@ -407,7 +407,7 @@ function key_down( event )
             cursor.style.left = '0px';
 
             --command.h_index;
-            row.innerHTML = command.histories[ command.h_index ];
+            row.textContent = command.histories[ command.h_index ];
 
             if( enable_log )
             {
@@ -427,7 +427,7 @@ function key_down( event )
             ++command.h_index;
             if( command.h_index == length )
             {
-                row.innerHTML = screen.line_buffer;
+                row.textContent = screen.line_buffer;
                 if( enable_log )
                 {
                     console.log( 'restore the last line', screen.line_buffer );
@@ -435,7 +435,7 @@ function key_down( event )
             }
             else
             {
-                row.innerHTML = command.histories[ command.h_index ];
+                row.textContent = command.histories[ command.h_index ];
                 if( enable_log )
                 {
                     console.log( 'Arrow-Down: ', command.histories[ command.h_index ] );
@@ -523,8 +523,8 @@ function key_down( event )
         // cursor_pos is negative
         if( cursor_pos != 0 )
         {
-            var array = row.innerHTML.split( "" );
-            row.innerHTML = '';
+            var array = row.textContent.split( "" );
+            row.textContent = '';
             var result = '';
 
             var index  = 0;
@@ -541,12 +541,12 @@ function key_down( event )
                 ++index;
             }
 
-            row.innerHTML = result;
+            row.textContent = result;
             screen.line_buffer = result;
         }
         else
         {
-            row.innerHTML += char;
+            row.textContent += char;
             screen.line_buffer += char;
         }
 
