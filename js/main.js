@@ -2,15 +2,15 @@
 
 console.log( '5. main.js was loaded.' );
 console.log( 'Welcome to red-cursor: ' + RED_CURSOR_VERSION );
-doc.tag( 'title' )[ 0 ].textContent = 'red-cursor: ' + RED_CURSOR_VERSION;
 
 var path    = new Path();
 var svg     = new Svg();
 var screen  = new Screen( svg );
 var command = new Command( screen, path );
 
-// set the font-size
-doc.tag( 'body' )[ 0 ].style.fontSize = '15px';
+// set the font-size and title
+doc.id( 'title' ).textContent = 'red-cursor: ' + RED_CURSOR_VERSION;
+doc.id( 'body' ).style.fontSize = '15px';
 
 // by default the background color will be as the same gnome-Terminal on Ubuntu
 screen.background( '#2C001E' );
