@@ -27,16 +27,7 @@ screen.cursor();
 screen.newline();
 
 // calculate size of a single character
-// we already have '_' so we can use that
-//
-// In some browsers its value is NOT integer but it is a
-// floating-point number and we you to round it to down
-// screen.char_width = screen.get( 'cursor' ).offsetWidth;
-
-
-screen.char_width = screen.get( 'cursor' ).getBoundingClientRect().width;
-// for Opera, Safari, Chorome
-screen.char_width = Math.floor( screen.char_width );
+screen.char_width = Math.floor( doc.id( 'screen-character' ).getBoundingClientRect().width );
 
 // the main function that handles keystroke for us
 function key_down( event )

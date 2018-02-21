@@ -50,9 +50,7 @@ function Screen( svg )
             doc.id( 'BODY' ).style.fontSize = size + 'px';
         }
 
-        screen.char_width = screen.get( 'cursor' ).getBoundingClientRect().width;
-        // for Opera, Safari, Chorome
-        screen.char_width = Math.floor( screen.char_width );
+        screen.char_width = Math.floor( doc.id( 'screen-character' ).getBoundingClientRect().width );
     }
 
     // add simple text to the screen
