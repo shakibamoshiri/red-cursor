@@ -22,7 +22,7 @@ function Screen( svg )
     {
         if( color === undefined )
         {
-            doc.id( 'HTML' ).style.backgroundColor = '#2C001E';
+            doc.id( 'html' ).style.backgroundColor = '#2C001E';
         }
         else
         {
@@ -30,7 +30,7 @@ function Screen( svg )
             {
                 console.log( 'change background color to: ' + color );
             }
-            doc.id( 'HTML' ).style.backgroundColor = color;
+            doc.id( 'html' ).style.backgroundColor = color;
         }
     }
 
@@ -39,7 +39,7 @@ function Screen( svg )
     {
         if( size === undefined )
         {
-            doc.id( 'BODY' ).style.fontSize = '15px';
+            doc.id( 'body' ).style.fontSize = '15px';
         }
         else
         {
@@ -47,7 +47,7 @@ function Screen( svg )
             {
                 console.log( 'change font-size to: ' + size );
             }
-            doc.id( 'BODY' ).style.fontSize = size + 'px';
+            doc.id( 'body' ).style.fontSize = size + 'px';
         }
 
         screen.char_width = Math.floor( doc.id( 'screen-character' ).getBoundingClientRect().width );
