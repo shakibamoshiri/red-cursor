@@ -74,7 +74,7 @@ span
     color: #FFF;
 }
 
-.character
+#screen-character
 {
     position: fixed;
 }
@@ -141,7 +141,7 @@ svg
     font-style: italic;
     color: #A9A9A9;
 }
-.guide
+#guide
 {
     position: fixed;
     bottom: 10px;
