@@ -1,67 +1,65 @@
 'use strict';
 
-console.log( 'Svg.js was loaded.' );
+console.log( 'Svg.js was loaded' );
 
 function Svg()
 {
-    // this.xmlns = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="50">'
     this.svgns = 'http://www.w3.org/2000/svg';
 
-    this.points_offset = 10;
-
-    // for creating polygon dynamically
-    this.start_point = 0;
-    this.end_point = 0;
-    this.tip_point = 0;
-
-    // start point for a text
-    this.text_x = 0;
+    this.text_offset = 10;
 
     this.char_width = 0;
     this.char_height = 0;
     this.font_size = 0;
+
+    this.begin = 0;
+    this.tip = 0;
+    this.end = 0;
+    this.max_width = 0;
+    this.text_x = 0;
 }
 
-// find the points and return an array of 6 points
+Svg.prototype.init = function()
+{
+    this.char_width  = Math.floor( doc.id( 'screen-character' ).getBoundingClientRect().width );
+    this.char_height = doc.id( 'screen-character' ).getBoundingClientRect().height;
+    this.font_size   = parseInt( document.body.style.fontSize );
+
+    this.max_width = 0;
+    this.text_x    = 0;
+    this.begin = 0;
+    this.tip   = 0;
+    this.end   = 0;
+
+}
+
 Svg.prototype.find_points = function( text )
 {
-    var a = this.start_point + ',0';
-    this.text_x = this.start_point + this.points_offset + 5;
+    var M = 'M' +  this.begin + ',0';
+    this.text_x = this.begin + this.text_offset + 5;
 
-    this.end_point = this.start_point + ( this.points_offset * 2 ) + ( text.length * this.char_width );
-    var b = this.end_point + ',0' ;
+    this.end    = this.begin + ( this.text_offset * 2 ) + ( text.length * this.char_width );
+    var L1 = this.end + ',0';
 
-    this.tip_point = this.end_point + this.points_offset;
-    var c = this.tip_point + ',' + ( this.char_height / 2 ); // like: 18 / 2 ==> 9
+    this.tip = this.end + this.text_offset;
+    var L2 = this.tip + ',' + ( this.char_height / 2 );
 
-    var d = this.end_point + ',' + this.char_height ;
-    var e = this.start_point + ',' + this.char_height;
-    var f = this.start_point + this.points_offset + ',' + ( this.char_height / 2 );
+    var L3 = this.end + ',' + this.char_height;
 
-    this.start_point = this.tip_point;
+    var L4 = this.begin + ',' + this.char_height;
 
-    return [ a, b, c, d, e, f ];
+    var L5 = this.begin + this.text_offset + ',' + ( this.char_height / 2 );
+
+    this.begin = this.tip - 5;
+    this.max_width = this.begin + this.text_offset;
+
+    return [ M, L1, L2, L3, L4, L5 ].join( ' ' );
 }
 
-// find with an text input like: home/Shakiba or home/Shakiba/bin
-Svg.prototype.find_width = function( input )
+Svg.prototype.fix_width = function()
 {
-    // delimiter between paths is '/'
-    var dirs = input.split( '/' );
-    var index = 0;
-    var max = dirs.length;
-    var width = 0;
-
-    while( index < max )
-    {
-        width += dirs[ index ].length * this.char_width;
-        width += ( this.points_offset * 3 )
-        ++index;
-    }
-
-    width += this.points_offset
-
-    return width;
+    var svg = doc.class( 'svg' );
+    svg[ svg.length - 1 ].setAttribute( 'width', this.max_width );
 }
 
 Svg.prototype.text = function( string )
@@ -70,7 +68,7 @@ Svg.prototype.text = function( string )
     text.setAttribute( 'fill', '#000' );
     text.setAttribute( 'x', this.text_x );
     text.setAttribute( 'y', this.font_size  );
-    text.setAttribute( 'font-family', 'monospace Inconsolata' );
+    text.setAttribute( 'font-family', 'DejaVu Sans Mono, Source code variable, monospace' );
     text.setAttribute( 'font-size', this.font_size );
 
     var contents = document.createTextNode( string );
@@ -79,33 +77,41 @@ Svg.prototype.text = function( string )
     svg[ svg.length - 1 ].appendChild( text );
 }
 
-// draw a single polygon and then call text for add text to it
-Svg.prototype.polygon = function( text, className = '' )
+Svg.prototype.path = function( text, class_name )
 {
-    var polygon = document.createElementNS( this.svgns, 'polygon' );
-    polygon.setAttribute( 'fill', '#FFF' );
-    polygon.setAttribute( 'points', this.find_points( text ) );
-    polygon.setAttribute( 'class', className );
-    var svg = doc.class( 'svg' );
-    svg[ svg.length - 1 ].appendChild( polygon );
+    var path = document.createElementNS( this.svgns, 'path' );
 
+    path.setAttribute( 'fill', '#FFF' ) ;
+    path.setAttribute( 'd', this.find_points( text ) );
+    path.setAttribute( 'class', class_name );
+    var svg = doc.class( 'svg' );
+    svg[ svg.length - 1 ].appendChild( path );
+
+    // after each <path> also add <text>
     this.text( text );
 }
 
-// find character width and height and font-size
-// then create new SVG tag and for each name call polygon function
-// last one should have different class (= different color)
+Svg.prototype.cursor = function()
+{
+    var svg = document.createElementNS( this.svgns, 'svg' );
+    svg.setAttribute( 'xmlns', this.svgns );
+    svg.setAttribute( 'xmlns:xlink', 'http://www.w3.org/1999/xlink'  );
+    svg.setAttribute( 'width', this.char_width );
+    svg.setAttribute( 'height', this.char_height );
+    svg.setAttribute( 'class', 'svg-cursor' );
+    var cursor = doc.class( 'cursor' );
+    cursor[ cursor.length - 1 ].appendChild( svg );
+}
+
 Svg.prototype.create = function( text )
 {
-    // use span.character to found out about width and height of a single character
-    this.char_width  = doc.id( 'screen-character' ).getBoundingClientRect().width;
-    this.char_height = doc.id( 'screen-character' ).getBoundingClientRect().height;
-    this.font_size   = parseInt( document.body.style.fontSize );
+    this.init();
 
     var svg = document.createElementNS( this.svgns, 'svg' );
-    svg.setAttribute( 'width', this.find_width( text ) );
+    svg.setAttribute( 'xmlns', this.svgns );
+    svg.setAttribute( 'xmlns:xlink', 'http://www.w3.org/1999/xlink'  );
+    svg.setAttribute( 'width', 0 );
     svg.setAttribute( 'height', this.char_height );
-    svg.setAttributeNS( 'http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     svg.setAttribute( 'class', 'svg' );
     var prompt = doc.class( 'prompt' );
     prompt[ prompt.length - 1 ].appendChild( svg );
@@ -115,9 +121,11 @@ Svg.prototype.create = function( text )
     var index = 0;
     while( index < max )
     {
-        this.polygon( dirs[ index ], 'path' );
+        this.path( dirs[ index ], 'path' );
         ++index;
     }
     // current working directory that has different color
-    this.polygon( dirs[ index ], 'cwd' );
+    this.path( dirs[ index ], 'cwd' );
+
+    this.fix_width();
 }

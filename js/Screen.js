@@ -109,8 +109,8 @@ function Screen( svg )
 
         var cursor = document.createElement( 'SPAN' );
 
-        var underscore = document.createTextNode( this.cursor_shape );
-        cursor.appendChild( underscore );
+        // var underscore = document.createTextNode( this.cursor_shape );
+        // cursor.appendChild( underscore );
 
         doc.id( 'terminal' ).appendChild( cursor );
         cursor.className = 'cursor';
@@ -124,6 +124,8 @@ function Screen( svg )
         // thus after each time a cursor is added then the scroll-bar
         // will be fixed to the very last point
         window.scrollTo(  0, document.body.scrollHeight );
+
+        svg.cursor();
     }
 
     this.hide_cursor = function()
@@ -139,12 +141,6 @@ function Screen( svg )
 
     this.newline = function()
     {
-        // reset svg class variables to start fresh on each line
-        svg.start_point = 0;
-        svg.end_point = 0;
-        svg.tip_point = 0;
-        svg.text_x = 0;
-
         var br = document.createElement( 'BR' );
         doc.id( 'terminal' ).appendChild( br );
     }
