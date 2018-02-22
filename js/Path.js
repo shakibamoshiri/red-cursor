@@ -1,6 +1,6 @@
 'use strict';
 
-console.log( '2. Path.js was loaded.' );
+console.log( 'Path.js was loaded.' );
 
 function Path()
 {

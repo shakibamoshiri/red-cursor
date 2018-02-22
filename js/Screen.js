@@ -1,6 +1,6 @@
 'use strict';
 
-console.log( '3. Screen.js was loaded.' );
+console.log( 'Screen.js was loaded.' );
 
 function Screen( svg )
 {

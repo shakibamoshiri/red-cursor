@@ -1,6 +1,6 @@
 "use strict";
 
-console.log( '5. main.js was loaded.' );
+console.log( 'main.js was loaded.' );
 console.log( 'Welcome to red-cursor: ' + RED_CURSOR_VERSION );
 
 var path    = new Path();
@@ -560,5 +560,5 @@ document.addEventListener( 'keydown', key_down, false );
 // document.addEventListener( 'keyup', key_up, false );
 
 
-console.log( 'end of main.js code.' );
+console.log( 'finished loading.' );
 console.log( 'console.log is disable. For turn it off/on try: Alt + l' );

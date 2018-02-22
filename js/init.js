@@ -26,7 +26,7 @@ SOFTWARE.
 
 *********************************************************************************/
 
-console.log( '1. init.js was loaded' );
+console.log( 'init.js was loaded' );
 
 var doc =
     {
