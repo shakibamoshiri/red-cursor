@@ -1,6 +1,6 @@
 'use strict';
 
-console.log( '4. Command.js was loaded.' );
+console.log( 'Command.js was loaded.' );
 
 function Command( screen, path )
 {
@@ -98,15 +98,15 @@ function Command( screen, path )
             var size = fs.exec( command )[ 1 ];
             if( size === undefined )
             {
-                screen.fsize();
-                text( 'reset to default' );
-                screen.newline();
-                text( 'Range is from 10 to 99. Default is 15px.' );
-                screen.newline();
+                screen.font_size();
+                print( [
+                    'reset to default',
+                    'Range is from 10 to 99. Default is 15px.',
+                ] );
             }
             else
             {
-                screen.fsize( size );
+                screen.font_size( size );
             }
         }
         else
@@ -139,20 +139,7 @@ function Command( screen, path )
                 var cwd = path.cwd();
                 if( media in path.root[ cwd ] && path.root[ cwd ][ media ] === 'media' )
                 {
-                    if( cwd === 'Pictures' )
-                    {
-                        window.open( './' + cwd + '/' + media, '_blank', path.readable.Pictures[ media ] );
-                    }
-                    else
-                    if( cwd === 'Videos' )
-                    {
-                        window.open( './' + cwd + '/' + media, '_blank', path.readable.Videos[ media ] );
-                    }
-                    else
-                    if( cwd === 'Music' )
-                    {
-                        window.open( './' + cwd + '/' + media, '_blank', path.readable.Music[ media ] );
-                    }
+                    window.open( './' + cwd + '/' + media, '_blank', path.readable[ cwd ][ media ] );
                 }
                 else
                 {
@@ -216,7 +203,7 @@ function Command( screen, path )
                 text( 'skill:' );
                 screen.newline();
 
-                read( path.readable[ 'Documents' ][ 'skill' ] );
+                print( path.readable[ 'Documents' ][ 'skill' ] );
 
                 screen.hide_cursor();
                 screen.prompt( path.get() );
@@ -234,7 +221,7 @@ function Command( screen, path )
                 text( 'about-me:' );
                 screen.newline();
 
-                read( path.readable[ 'Documents' ][ 'about-me' ] );
+                print( path.readable[ 'Documents' ][ 'about-me' ] );
 
                 screen.hide_cursor();
                 screen.prompt( path.get() );
@@ -252,7 +239,7 @@ function Command( screen, path )
                 text( 'project:' );
                 screen.newline();
 
-                read( path.readable[ 'Documents' ][ 'project' ] );
+                print( path.readable[ 'Documents' ][ 'project' ] );
 
                 screen.hide_cursor();
                 screen.prompt( path.get() );
@@ -267,7 +254,6 @@ function Command( screen, path )
             break;
         }
     }
-
 
     // handle Control + key
     this.control = function( char )
@@ -343,7 +329,6 @@ function Command( screen, path )
         {
             screen.newline();
         }
-
     }
 
     this.cd = function( arg )
@@ -429,7 +414,7 @@ function Command( screen, path )
                 'tmpfs             206316       60    206256   1% /run/user/1000'
             ];
 
-        read( df );
+        print( df );
     }
 
     this.cat = function( arg )
@@ -456,9 +441,7 @@ function Command( screen, path )
                 }
                 else
                 {
-                    read( path.readable[ cwd ][ arg ] );
-                    //text( 'read: ' + 'in ' + cwd + ' ' + path.readable[ cwd ] )
-                    //screen.newline();
+                    print( path.readable[ cwd ][ arg ] );
                 }
             }
             else
@@ -535,16 +518,16 @@ function Command( screen, path )
                 "Alter   + d-a  : print about-me | cd Documents; cat about-me",
             ];
 
-        read( h );
+        print( h );
 
-        var guide = doc.class( 'guide' )[ 0 ];
-        if( guide !== undefined )
+        var guide = doc.id( 'guide' );
+        if( guide !== null )
         {
             doc.id( 'terminal' ).removeChild( guide );
         }
     }
 
-    function text( string, class_name = "text" )
+    function text( string, class_name )
     {
         var span = document.createElement( 'SPAN' );
 
@@ -552,10 +535,10 @@ function Command( screen, path )
         span.appendChild( contents );
 
         doc.id( 'terminal' ).appendChild( span );
-        span.classList.add( class_name );
+        span.classList.add( ( ( class_name === undefined ) ? 'text' : class_name ) );
     }
 
-    function read( contents )
+    function print( contents )
     {
         var length = contents.length;
         var index = 0;
