@@ -439,7 +439,7 @@ function key_down( event )
         event.preventDefault();
         char = '';
 
-        var row_width  = ( screen.get( 'row' ).offsetWidth - 1 );
+        var row_width  = row.textContent.length * screen.char_width;
         var cursor_pos_px = parseInt( cursor.style.left );
 
         if( cursor_pos_px + row_width <= 0 )
@@ -480,12 +480,7 @@ function key_down( event )
         event.preventDefault();
         char = '';
 
-        // In some browsers line: opera, vivaldi, chrome
-        // this value is not correct
-        // it is correct only on firefox
-        // var row_width = ( screen.get( 'row' ).offsetWidth  * -1 );
-
-        var row_width = ( screen.get( 'row' ).getBoundingClientRect().width );
+        var row_width = row.textContent.length * screen.char_width;
         // row_width =  Math.floor( row_width ) * -1;
         row_width = ( row_width ^ 0xFFFFFFFF ) + 1;
 
