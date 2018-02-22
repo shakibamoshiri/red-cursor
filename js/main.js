@@ -207,7 +207,7 @@ function key_down( event )
         var cwd = path.cwd();
         var row_tab = row.textContent;
 
-        var reserve_space = 20;
+        var reserve_space = 30;
         var format_width  = ( reserve_space * screen.char_width );
         var widnow_width  = window.innerWidth;
         var max_width     = format_width;
