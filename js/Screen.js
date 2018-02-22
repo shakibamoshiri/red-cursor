@@ -4,16 +4,12 @@ console.log( '3. Screen.js was loaded.' );
 
 function Screen( svg )
 {
-    //this.line = [];
-
     this.nrow = 0;
 
     this.char_width = 0;
 
-    //this.cursor_pos = 0;
-
-    // 𐌠│ ┃ ┆ ▕ ▍
-    this.cursor_shape = ' ';
+    // after using SVG as the cursor then we no need to use this variable
+    // this.cursor_shape = ' ';
 
     this.line_buffer = '';
 
@@ -35,7 +31,7 @@ function Screen( svg )
     }
 
     // change font size by: fs command
-    this.fsize = function( size )
+    this.font_size = function( size )
     {
         if( size === undefined )
         {
@@ -54,29 +50,26 @@ function Screen( svg )
     }
 
     // add simple text to the screen
-    this.text = function( string, class_name = 'text' )
+    this.text = function( string, class_name )
     {
         var span = document.createElement( 'SPAN' );
 
         var contents = document.createTextNode( string );
         span.appendChild( contents );
 
+        span.classList.add( ( ( class_name === undefined ) ? 'text' : class_name ) );
         doc.id( 'terminal' ).appendChild( span );
-        span.classList.add( class_name );
     }
 
-    // 
-    //     #  ⏵ ▶ ▷ ⟩ ⩥  ⫸  ⮞ ⯈               ＞
-    // # 𐌠│ ┃ ┆ ▕ ▍ ⚊ ❭ ❯ ❱ ❳ 〔〕  
     // print prompt
-    this.prompt = function( ps1 = 'home/Shakiba' )
+    this.prompt = function( ps1 )
     {
         var prompt = document.createElement( 'SPAN' );
         doc.id( 'terminal' ).appendChild( prompt );
         prompt.className = 'prompt';
 
         // create polygon, text passed on ps1
-        svg.create( ps1 );
+        svg.create( ( ( ps1 === undefined ) ? 'home/Shakiba' : ps1 ) );
     }
 
     // add a arbitrary tag to the terminal
@@ -101,7 +94,6 @@ function Screen( svg )
         doc.id( 'terminal' ).appendChild( tag );
     }
 
-
     // handling cursor
     this.cursor = function()
     {
@@ -109,6 +101,7 @@ function Screen( svg )
 
         var cursor = document.createElement( 'SPAN' );
 
+        // old-one
         // var underscore = document.createTextNode( this.cursor_shape );
         // cursor.appendChild( underscore );
 
@@ -125,6 +118,7 @@ function Screen( svg )
         // will be fixed to the very last point
         window.scrollTo(  0, document.body.scrollHeight );
 
+        // new-one
         svg.cursor();
     }
 
@@ -147,20 +141,6 @@ function Screen( svg )
 
     this.get = function( name )
     {
-        // if( name === 'row' )
-        // {
-        //     return document.getElementsByClassName( 'row' )[ this.nrow - 1 ];
-        // }
-        // else
-        // if( name === 'cursor' )
-        // {
-        //     // for hide the cursor, it is much faster than remove-child
-        //     return document.getElementsByClassName( 'cursor' )[ this.nrow - 1 ];
-
-        //     // for remove it
-        //     //return document.getElementsByClassName( 'cursor' )[ 0 ];
-        // }
-        // else
         if( name === 'line' )
         {
             var line = this.line_buffer.replace( /#[^0-9abcdef]+.*/ig, '' );
@@ -172,6 +152,7 @@ function Screen( svg )
         }
         else
         {
+            // always returns the last line
             return doc.class( name )[ this.nrow - 1 ];
         }
     }
@@ -185,5 +166,4 @@ function Screen( svg )
         // we should add it again because svg class needs it
         this.add( 'SPAN', 'screen-character', ' ', 'id' );
     }
-
 }
