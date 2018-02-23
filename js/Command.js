@@ -306,7 +306,11 @@ function Command( screen, path )
 
     this.ls = function()
     {
-        var size  = 0;
+        var reserve_space = 30;
+        var format_width  = ( reserve_space * screen.char_width );
+        var widnow_width  = window.innerWidth;
+        var max_width     = format_width;
+
         var cwd   = path.cwd();
         var files = path.root[ cwd ];
         var width = window.innerWidth;
@@ -314,15 +318,17 @@ function Command( screen, path )
 
         for( file in files )
         {
-            var name = file + '    ';
-            size += ( name.length * screen.char_width );
-            if( size > width )
+            // concatenation file name + ( 30 - file.length ) space for formatting output
+            // like printf( "%-30s", file );
+            text( file + " ".repeat( reserve_space - file.length ), path.root[ cwd ][ file ] );
+            max_width += format_width;
+
+            // if we are close/near to edge of window then we should add new line
+            if( max_width >= widnow_width )
             {
                 screen.newline();
-                size = 0;
+                max_width = format_width;
             }
-            // first arg is a string and second is a class-name to colorize the output
-            text( name, path.root[ cwd ][ file ] );
         }
 
         if( file !== undefined )
