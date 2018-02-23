@@ -17,8 +17,6 @@ function Path()
         return this.pwd.join( '/' );
     }
 
-    // this.list = [];
-
     // all files and directories
     this.root =
         {
@@ -229,7 +227,6 @@ function Path()
                 '               : Physical Fitness more than 10 years.',
                 '               : Parkour more than 2 years.'
             ]
-
         }
     };
 
@@ -246,16 +243,4 @@ function Path()
             return this.pwd [ this.pwd.length - 1 ];
         }
     }
-
-    // this.update = function()
-    // {
-    //     // clear everything in the list
-    //     this.list = [];
-
-    //     // update the list of files and directories in the Current Working Directory
-    //     for( var files in this.root[ this.pwd [ this.pwd.length - 1 ] ] )
-    //     {
-    //         this.list.push( files );
-    //     }
-    // }
 }
