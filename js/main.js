@@ -47,17 +47,11 @@ function key_down( event )
     // store each cursor because we might clear it, or modify it later
     var cursor  = screen.get( 'cursor' );
 
-    // stop cursor blinking
-    // cursor.style.animationIterationCount = '1';
-    // this is not a good choice
-    // cursor.style.animationPlayState = "paused";
-
     // exact position of the cursor. by default it is 0 but if we move
-    // it, it becomes negative (= more the left)
+    // it, it becomes negative (= move to the left)
     var cursor_pos =  parseInt( cursor.style.left ) / screen.char_width;
 
-    // clearing screen with Control + L, or
-    // enable/disable logging to the console
+    // special key handling
     if( event.ctrlKey || event.altKey || event.shiftKey )
     {
         event.preventDefault();
@@ -90,10 +84,6 @@ function key_down( event )
     switch( char )
     {
         case 'Enter':
-
-        // for mysql:
-        // https://regex101.com/r/tjQ0kC/1
-        // (?=.*[^,] from ) ([a-zA-Z(*)]+) *,?
 
         // copy the full row contents
         screen.line_buffer = row.textContent;
@@ -134,7 +124,6 @@ function key_down( event )
             screen.newline();
         }
 
-        //
         screen.line_buffer = '';
         break;
 
@@ -145,9 +134,9 @@ function key_down( event )
         // and how many character we have in our row
         var width = row.textContent.length;
 
-        if( width > ( cursor_pos * -1 ) )
+        if( width > ( ~cursor_pos + 1 ) )
         {
-            var array = row.textContent.split( "" );
+            var array = row.textContent.split( '' );
             row.textContent = '';
             var result = '';
 
@@ -171,9 +160,9 @@ function key_down( event )
         break;
 
         case 'Delete':
-        if( ( cursor_pos * -1 ) > 0 )
+        if( ( ~cursor_pos + 1 ) > 0 )
         {
-            var array = row.textContent.split( "" );
+            var array = row.textContent.split( '' );
             row.textContent = '';
             var result = '';
 
@@ -289,13 +278,13 @@ function key_down( event )
 
             // other directories except path.root.bin
             var files = path.root[ cwd ];
-            var word2 = row_tab.substr( row_tab.lastIndexOf( ' ' ) + 1, row_tab.length );
-            if( files[ word2 ] !== undefined )
+            var user_entered = row_tab.substr( row_tab.lastIndexOf( ' ' ) + 1, row_tab.length );
+            if( files[ user_entered ] !== undefined )
             {
-                if( files[ word2 ] === 'directory' )
+                if( files[ user_entered ] === 'directory' )
                 {
-                    files = path.root[ word2 ];
-                    word2 = '';
+                    files = path.root[ user_entered ];
+                    user_entered = '';
                 }
                 else
                 {
@@ -306,7 +295,7 @@ function key_down( event )
 
             for( var file in files )
             {
-                if( file.startsWith( word2 ) === true )
+                if( file.startsWith( user_entered ) === true )
                 {
                     match = file;
                     ++match_counter;
@@ -331,7 +320,7 @@ function key_down( event )
 
             if( match_counter === 1 )
             {
-                screen.line_buffer = row_tab + match.substr( word2.length, match.length );
+                screen.line_buffer = row_tab + match.substr( user_entered.length, match.length );
                 screen.add( 'SPAN', 'row', screen.line_buffer );
             }
             else
@@ -481,8 +470,7 @@ function key_down( event )
         char = '';
 
         var row_width = row.textContent.length * screen.char_width;
-        // row_width =  Math.floor( row_width ) * -1;
-        row_width = ( row_width ^ 0xFFFFFFFF ) + 1;
+        row_width = ~row_width + 1;
 
         cursor.style.left = row_width + 'px';
 
@@ -542,23 +530,6 @@ function key_down( event )
 }
 
 document.addEventListener( 'keydown', key_down, false );
-
-// function key_up( event )
-// {
-//     var cursor = document.getElementsByClassName( 'cursor' );
-
-//     // standard
-//     //cursor[ cursor.length - 1 ].style.animationPlayState = "running";
-//     cursor[ cursor.length - 1 ].style.animationIterationCount = 'infinite';
-
-//     // opera, safari, chrome
-//     //cursor[ cursor.length - 1 ].style.WebkitAnimationPlayState = "running";
-
-//     console.log( 'key up' );
-// }
-
-// document.addEventListener( 'keyup', key_up, false );
-
 
 console.log( 'finished loading.' );
 console.log( 'console.log is disable. For turn it off/on try: Alt + l' );
