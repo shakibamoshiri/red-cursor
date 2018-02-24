@@ -371,6 +371,11 @@ function Command( screen, path )
             {
                 // now we are not in the home directory and thus we can go back
                 path.pwd.pop();
+                for( var file in path.root[ cwd ] )
+                {
+                    text( file );
+                    screen.newline();
+                }
             }
             break;
 
@@ -378,6 +383,11 @@ function Command( screen, path )
             if( path.root[ cwd ][ arg ] === 'directory' && arg in path.root[ cwd ] )
             {
                 path.pwd.push( arg );
+                for( var file in path.root[ cwd ] )
+                {
+                    text( file );
+                    screen.newline();
+                }
             }
             else
             {
