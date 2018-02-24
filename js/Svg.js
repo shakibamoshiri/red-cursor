@@ -59,7 +59,7 @@ Svg.prototype.find_points = function( text )
 Svg.prototype.fix_width = function()
 {
     var svg = doc.class( 'svg' );
-    svg[ svg.length - 1 ].setAttribute( 'width', this.max_width );
+    svg[ svg.length - 1 ].setAttribute( 'width', this.max_width + 5 );
 }
 
 Svg.prototype.text = function( string )
