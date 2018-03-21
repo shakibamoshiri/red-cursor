@@ -7,7 +7,7 @@ body
 {
     margin: 0;
     padding: 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'DejaVu Sans Mono', 'Source code variable', 'Inconsolata', monospace;
     font-size: 15px;
     color: #FFF;
 }
@@ -149,3 +149,20 @@ svg
     font-size: 30px;
     opacity: 0.5;
 }
+/*********** copyright section ***********/
+#copyright
+{
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+}
+#heart
+{
+    display: inline;
+}
+sup a
+{
+    color: #FFF;
+}
+/*****************************************/
+
