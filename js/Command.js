@@ -540,6 +540,9 @@ function Command( screen, path )
         if( guide !== null )
         {
             doc.id( 'terminal' ).removeChild( guide );
+            var copyright = document.createElement( 'SPAN' );
+            copyright.innerHTML = '<p id="copyright">red-cursor Copyright &copy; ' + ( ( Date().toString().split( ' ' ) )[3] ) + ' Shakiba <sup><a href="https://github.com/k-five/red-cursor" target="_blank">src</a></sup></p>';
+            document.body.appendChild( copyright );
         }
     }
 
