@@ -1,4 +1,4 @@
-![banner](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.banner.gif)  
+![banner](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.banner.2.gif)  
   
 A simple, but still beautiful **Terminal Emulator**.  
 This is an app with pure `JavaScript`, `HTML` and `CSS`.  
