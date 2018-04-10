@@ -157,12 +157,13 @@ Also I am a big fan of using **keyboard** and **Terminal**. And here is the resu
 
 
 <br>
-<hr>
+<br>
 
 <h1 id="thanks" align="center">thanks</h1>
 <p align="center">
   &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
+  &#9898; <a href="#keystrokes">keystrokes</a>
   &#9899; thanks
   &#9898; <a href="#bottom">bottom</a>
   &#9898; <a href="#top">top</a>
@@ -173,13 +174,14 @@ I deeply appreciate
  2. [w3schools](https://www.w3schools.com/) for its short-and-sweet examples.  
  3. [MDN web doc](https://developer.mozilla.org/en-US/) for its good documentation and examples.  
 
-<hr>
+<br>
 <br>
 
 <h1 id="license" align="center">license</h1>
 <p align="center">
   &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
+  &#9898; <a href="#keystrokes">keystrokes</a>
   &#9898; <a href="#thanks">thanks</a>
   &#9899; bottom
   &#9898; <a href="#top">top</a>
