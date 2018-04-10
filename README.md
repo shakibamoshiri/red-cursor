@@ -1,58 +1,43 @@
-![banner](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.banner.2.gif)  
+<br>
+<p id="top" align="center">
+  <a href="https://k-five.github.io/jsMyAdmin/">
+    <img src="./res/view.svg" />
+  </a>
+  <a href="#commands">
+    <img src="./res/commands.svg" />
+  </a>
+  <a href="#keystrokes">
+    <img src="./res/keystrokes.svg" />
+  </a>
+  <a href="#idea">
+    <img src="./res/idea.svg" />
+  </a>
+  <a href="#bottom">
+    <img src="./res/bottom.svg" />
+  </a>
+  <a href="https://github.com/k-five/rec-cursor/blob/master/LICENSE">
+    <img src="./res/license.svg" />
+  </a>
+</p>
+<br>
+<br>
+
+<img str="https://github.com/k-five/red-cursor/blob/master/res/red-cursor.banner.2.gif" />
   
-A simple, but still beautiful **Terminal Emulator**.  
-This is an app with pure `JavaScript`, `HTML` and `CSS`.  
-# [Live-Demo](https://k-five.github.io/red-cursor/)  
+A simple, but still beautiful **Terminal Emulator**.
+I would like to have my own personal website but in a different way. Usually my creativity does not let me copy from others.
+Also I am a big fan of using **keyboard** and **Terminal**. And here is the result, an web-app with pure `JavaScript`, `HTML` and `CSS` and `SVG`. 
 
 
-![1](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.1.png)  
- - Tab completion  
- - Cursor movement  
-   - Home  
-   - End  
-   - Left-arrow  
-   - Right-arrow  
- - History Navigation  
-   - Up-arrow  
-   - Down-arrow  
- - Modify line  
-   - Backspace  
-   - Delete  
- - Special Key  
-   - Alt  
-   - Ctrl  
-   - Shift  
-
-
-![2](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.2.png)  
-I was looking for a good style for my personal website so that I can put my resume on it. And although  
-there were a lot of good sites and especially free-templates and web-site-builder(s), eventually I came  
-up with this idea that I should create an application; looks line my **terminal emulator** since almost  
-I use `CLI` and not `GUI`  
-
-
-![3](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.3.png)  
-Apart from designing it for myself, I tried to make it more useful for someone; who wants to learn `JS`  
-and `CSS` and `HTML` deeply.  
-The app is based on 3 core things:  
- 1. `span` tag and `br` tag in HTML  
- 2. **animation** in `CSS`  
- 3. **DOM** modification with `JavaScript`  
-
-
-![4](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.4.png)  
-The most interesting part of the app is **cursor movement** which is based on `animation` and asynchronous  
-nature in `CSS`. Also modifying the **innerHTML** of a tag (= line) is a little tricky so that users can feel  
-that they are encountered a real **Terminal Emulator** which in Linux it is usually done by **GNU readlihne** library.  
-
-
-![5](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.5.png)  
- 1. Full documentation on each step/line of the code.  
- 2. Separate the main function (= main.js) form other parts so you can see how it works.  
- 3. Key-binding to toggle `console.log` **on**/**off** so you easily can see what is going on.  
-
-
-![6](https://github.com/k-five/red-cursor/blob/master/pngs/red-cursor.6.png)  
+<h1 id="commands" align="center">commands</h1>
+<p align="center">
+  &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
+  &#9899; commands
+  &#9898; <a href="#keystrokes">keystrokes</a>
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+<br>
 
 <table>
     <tr>
@@ -132,6 +117,35 @@ that they are encountered a real **Terminal Emulator** which in Linux it is usua
     </tr>
 </table>
 
+
+<h1 id="keystrokes" align="center">keystrokes</h1>
+<p align="center">
+  &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
+  &#9898; <a href="#commands">commands</a>
+  &#9899; keystrokes
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+
+ - Tab completion  
+ - Cursor movement  
+   - Home  
+   - End  
+   - Left-arrow  
+   - Right-arrow  
+ - History Navigation  
+   - Up-arrow  
+   - Down-arrow  
+ - Modify line  
+   - Backspace  
+   - Delete  
+ - Special Key  
+   - Alt  
+   - Ctrl  
+   - Shift  
+
+
+
 <hr>
 
 I deeply appreciate  
@@ -142,5 +156,18 @@ I deeply appreciate
 <hr>
 
 
-### LICENSE  
-MIT License  
+<h1 id="license" align="center">license</h1>
+<p align="center">
+  &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
+  &#9898; <a href="#commands">commands</a>
+  &#9899; bottom
+  &#9898; <a href="#top">top</a>
+</p>
+<p id="bottom" align="center">
+  red-cursor copyright &copy; 2017 Shakiba
+  <br>
+  <br>
+  ▒█▀▄▀█ ▀█▀ ▀▀█▀▀<br>
+  ▒█▒█▒█ ▒█░ ░▒█░░<br>
+  ▒█░░▒█ ▄█▄ ░▒█░░<br>
+</p>
