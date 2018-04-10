@@ -1,6 +1,6 @@
 <br>
 <p id="top" align="center">
-  <a href="https://k-five.github.io/jsMyAdmin/">
+  <a href="https://k-five.github.io/red-cursor/">
     <img src="./res/view.svg" />
   </a>
   <a href="#commands">
@@ -161,7 +161,7 @@ Also I am a big fan of using **keyboard** and **Terminal**. And here is the resu
 
 <h1 id="thanks" align="center">thanks</h1>
 <p align="center">
-  &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
+  &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
   &#9898; <a href="#keystrokes">keystrokes</a>
   &#9899; thanks
@@ -179,7 +179,7 @@ I deeply appreciate
 
 <h1 id="license" align="center">license</h1>
 <p align="center">
-  &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
+  &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
   &#9898; <a href="#keystrokes">keystrokes</a>
   &#9898; <a href="#thanks">thanks</a>
