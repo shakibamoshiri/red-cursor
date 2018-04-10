@@ -10,7 +10,7 @@
     <img src="./res/keystrokes.svg" />
   </a>
   <a href="#idea">
-    <img src="./res/idea.svg" />
+    <img src="./res/thanks.svg" />
   </a>
   <a href="#bottom">
     <img src="./res/bottom.svg" />
@@ -22,21 +22,29 @@
 <br>
 <br>
 
-<img str="https://github.com/k-five/red-cursor/blob/master/res/red-cursor.banner.2.gif" />
-  
+<img src="https://github.com/k-five/red-cursor/blob/master/res/red-cursor.banner.2.gif" />
+
+<br>
+<br>
+
 A simple, but still beautiful **Terminal Emulator**.
 I would like to have my own personal website but in a different way. Usually my creativity does not let me copy from others.
-Also I am a big fan of using **keyboard** and **Terminal**. And here is the result, an web-app with pure `JavaScript`, `HTML` and `CSS` and `SVG`. 
+Also I am a big fan of using **keyboard** and **Terminal**. And here is the result, an web-app with pure `JavaScript`, `HTML` and `CSS` and `SVG`.
 
+<br>
+<br>
 
 <h1 id="commands" align="center">commands</h1>
 <p align="center">
   &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
   &#9899; commands
   &#9898; <a href="#keystrokes">keystrokes</a>
+  &#9898; <a href="#thanks">thanks</a>
   &#9898; <a href="#bottom">bottom</a>
   &#9898; <a href="#top">top</a>
 </p>
+
+<br>
 <br>
 
 <table>
@@ -117,12 +125,15 @@ Also I am a big fan of using **keyboard** and **Terminal**. And here is the resu
     </tr>
 </table>
 
+<br>
+<br>
 
 <h1 id="keystrokes" align="center">keystrokes</h1>
 <p align="center">
   &#9898; <a href="https://k-five.github.io/red-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
   &#9899; keystrokes
+  &#9898; <a href="#thanks">thanks</a>
   &#9898; <a href="#bottom">bottom</a>
   &#9898; <a href="#top">top</a>
 </p>
@@ -145,8 +156,17 @@ Also I am a big fan of using **keyboard** and **Terminal**. And here is the resu
    - Shift  
 
 
-
+<br>
 <hr>
+
+<h1 id="thanks" align="center">thanks</h1>
+<p align="center">
+  &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
+  &#9898; <a href="#commands">commands</a>
+  &#9899; thanks
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
 
 I deeply appreciate  
  1. [tutorialspoint](https://www.tutorialspoint.com/) for its simple-to-learn e-books.  
@@ -154,12 +174,13 @@ I deeply appreciate
  3. [MDN web doc](https://developer.mozilla.org/en-US/) for its good documentation and examples.  
 
 <hr>
-
+<br>
 
 <h1 id="license" align="center">license</h1>
 <p align="center">
   &#9898; <a href="https://k-five.github.io/rec-cursor/">view</a>
   &#9898; <a href="#commands">commands</a>
+  &#9898; <a href="#thanks">thanks</a>
   &#9899; bottom
   &#9898; <a href="#top">top</a>
 </p>
