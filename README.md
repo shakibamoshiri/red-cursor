@@ -9,13 +9,13 @@
   <a href="#keystrokes">
     <img src="./res/keystrokes.svg" />
   </a>
-  <a href="#idea">
+  <a href="#thanks">
     <img src="./res/thanks.svg" />
   </a>
   <a href="#bottom">
     <img src="./res/bottom.svg" />
   </a>
-  <a href="https://github.com/k-five/rec-cursor/blob/master/LICENSE">
+  <a href="https://github.com/k-five/red-cursor/blob/master/LICENSE">
     <img src="./res/license.svg" />
   </a>
 </p>
