@@ -114,7 +114,7 @@ Also I am a big fan of using **keyboard** and **Terminal**. And here is the resu
       <td>open a media</td>
     </tr>
     <tr>
-      <td>clean</td>
+      <td>clear</td>
       <td>No</td>
       <td>clear the screen</td>
     </tr>
